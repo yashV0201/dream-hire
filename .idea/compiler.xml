@@ -9,6 +9,7 @@
         <module name="ideal-resumes" />
         <module name="job-profile" />
         <module name="service-registry" />
+        <module name="open-ai" />
       </profile>
     </annotationProcessing>
   </component>
@@ -16,6 +17,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="ideal-resumes" options="-parameters" />
       <module name="job-profile" options="-parameters" />
+      <module name="open-ai" options="-parameters" />
       <module name="service-registry" options="-parameters" />
     </option>
   </component>
