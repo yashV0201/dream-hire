@@ -1,6 +1,7 @@
 package com.dreamhire.job_profile.services;
 
 import com.dreamhire.job_profile.dto.JobProfileResponse;
+import com.dreamhire.job_profile.feign.OpenAiInterface;
 import com.dreamhire.job_profile.model.JobProfile;
 import com.dreamhire.job_profile.repository.ProfileRepository;
 import lombok.RequiredArgsConstructor;
@@ -18,6 +19,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class ProfileServices {
     private final ProfileRepository profileRepository;
+    private final OpenAiInterface openAiInterface;
 
     public ResponseEntity<JobProfile> createProfile(String name, String jD){
         JobProfile profile = new JobProfile();
@@ -48,5 +50,9 @@ public class ProfileServices {
                 .name(profile.getProfileName())
                 .jd(profile.getJobDescription())
                 .build(), HttpStatus.OK);
+    }
+    public ResponseEntity<String> sayHello(String prompt, String text){
+        String response = openAiInterface.getResponse(prompt,text).getBody();
+        return ResponseEntity.ok(response);
     }
 }

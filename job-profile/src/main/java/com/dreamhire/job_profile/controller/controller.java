@@ -33,4 +33,9 @@ public class controller {
         return profileServices.findByName(name);
     }
 
+    @GetMapping("hello")
+    public ResponseEntity<String> sayHello(@RequestParam String prompt, @RequestParam String text){
+        return profileServices.sayHello(prompt,text);
+    }
+
 }
